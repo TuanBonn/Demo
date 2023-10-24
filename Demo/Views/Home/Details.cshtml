@@ -1,0 +1,49 @@
+﻿@model Demo.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Book Details</h1>
+<hr />
+<div class="container col-md-10 card bg-dark">
+    <div class="row">
+        <div class="col-md-5 text-center">
+            <img src="@Html.DisplayFor(model => model.ImageURL)" width="250px" height="500px" />
+        </div>
+        <div class="row col-md-7 card bg-dark">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    <label>Name:</label>
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+                <dt class="col-sm-2">
+                    <label>Description:</label>
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShortDescription)
+                </dd>
+                <dt class="col-sm-2">
+                    <label>Price:</label>
+                </dt>
+                <dd class="col-sm-10">
+                    $@Html.DisplayFor(model => model.Price)
+                </dd>
+                <dt class="col-sm-2">
+                    <label>Category: </label>
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Category.CategoryName)
+                </dd>
+                <dd class="col-sm-10">
+                    <a href="#" class="btn btn-primary" style="width: 200px">Add to cart</a>
+                </dd>
+                <dd class="col-sm-10">
+                    <label>Contact to order: 0394123456</label>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -20,8 +20,8 @@ namespace Demo.Controllers
             _context = context;
         }
         [Authorize]
-        
 
+        [Authorize(Roles = "Admin")]
         // GET: Books
         public async Task<IActionResult> Index()
         {
@@ -48,7 +48,7 @@ namespace Demo.Controllers
             return View(book);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         // GET: Books/Create
         public IActionResult Create()

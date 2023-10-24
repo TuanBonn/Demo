@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Demo.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="bg-dark text-light">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Demo</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/395843039_866441628468253_5510332541059782137_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=59Ez2QgmTMkAX91KUdC&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAB4ybevfbsLLFTFJq-4weuDgyuYYP0SRG-tQI1bkj6XA&oe=653D25A0" width="40px" height="40px" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,10 +22,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Books" asp-action="Index">Admin</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -37,8 +39,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class="bg-dark footer text-muted">
+        <div class="container text-center">
             &copy; 2023 - Demo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Book management</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New Book</a>
 </p>
-<table class="table">
+<table class="table text-light">
     <thead>
         <tr>
             <th>
@@ -24,9 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ImageURL)
             </th>
-            <th>
+@*            <th>
                 @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Category)
             </th>
@@ -46,18 +46,20 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
+                <a>
+                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width="100px" height="100px" />
+                </a>                
             </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate  )
+            </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+            <td class="text-end">
+                    <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-primary">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
