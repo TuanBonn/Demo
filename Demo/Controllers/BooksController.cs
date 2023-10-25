@@ -23,11 +23,51 @@ namespace Demo.Controllers
 
         [Authorize(Roles = "Admin")]
         // GET: Books
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var applicationDbContext = _context.Book.Include(b => b.Category);
+
+            //var data = await _context.Book.ToListAsync();
+
+            //if (data == null)
+            //{
+            //    return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+            //}
+
+            //var book = from m in data
+            //              select m;
+
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    book = book.Where(s => s.ProductName!.Contains(searchString));
+            //    return View();
+            //}
+            //else
+            //{
+            //    return _context.Book != null ?
+            //                      View(data) :
+            //                      Problem("Entity set 'ASM1.Product'  is null.");
+            //}
+
+            if (_context.Book == null)
+            {
+                return Problem("Entity set 'applicationDbContext.Book'  is null.");
+            }
+
+            var books = from m in _context.Book
+                        select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.ProductName.Contains(searchString));
+                return View(await books.ToListAsync());
+            }
             return View(await applicationDbContext.ToListAsync());
+
+
         }
+
+       
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)

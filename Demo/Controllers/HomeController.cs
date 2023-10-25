@@ -22,20 +22,6 @@ namespace Demo.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        [HttpGet]
-        [Route("/SearchBook")]
-        public IActionResult SearchBook(string searchString)
-        {
-            if (String.IsNullOrEmpty(searchString))
-            {
-                return View();
-            }
-            var searched_books = _context.Book.Include(prd => prd.Category)
-                .Where(s => s.ProductName.Contains(searchString)); // It's always null
-            ViewBag.searched_books = searched_books.ToList();
-            return View();
-        }
-
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Book == null)

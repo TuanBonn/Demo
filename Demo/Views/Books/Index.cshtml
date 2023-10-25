@@ -11,13 +11,25 @@
 </p>
 <table class="table text-light">
     <thead>
+
+        <form asp-controller="Books" asp-action="Index">
+    <div class="container">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." name="SearchString">
+            <span class="input-group-btn">
+                <button class="btn btn-search" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
+            </span>
+        </div>
+    </div>
+</form>
+
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
-            <th>
+@*            <th>
                 @Html.DisplayNameFor(model => model.ShortDescription)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
@@ -39,15 +51,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.ShortDescription)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 <a>
-                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width="100px" height="100px" />
+                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width="100px" height="150px" />
                 </a>                
             </td>
 @*            <td>
