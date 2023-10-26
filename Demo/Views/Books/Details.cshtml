@@ -4,45 +4,44 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Details Book</h1>
 
 <div>
-    <h4>Book</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayNameFor(model => model.ProductName):
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProductName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortDescription)
+            @Html.DisplayNameFor(model => model.ShortDescription):
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ShortDescription)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Price):
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Price)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageURL)
+            @Html.DisplayNameFor(model => model.ImageURL):
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Html.DisplayFor(model => model.ImageURL)" width="100px" height="100px" />
+            <img src="@Html.DisplayFor(model => model.ImageURL)" width="100px" height="150px" />
             
         </dd>
-@*        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate):
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CreatedDate)
-        </dd>*@
+        </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.Category):
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Category.CategoryName)
@@ -50,6 +49,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.ProductID">Edit</a>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
 </div>

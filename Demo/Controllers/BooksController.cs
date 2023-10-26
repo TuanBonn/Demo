@@ -29,26 +29,6 @@ namespace Demo.Controllers
 
             //var data = await _context.Book.ToListAsync();
 
-            //if (data == null)
-            //{
-            //    return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
-            //}
-
-            //var book = from m in data
-            //              select m;
-
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    book = book.Where(s => s.ProductName!.Contains(searchString));
-            //    return View();
-            //}
-            //else
-            //{
-            //    return _context.Book != null ?
-            //                      View(data) :
-            //                      Problem("Entity set 'ASM1.Product'  is null.");
-            //}
-
             if (_context.Book == null)
             {
                 return Problem("Entity set 'applicationDbContext.Book'  is null.");
@@ -63,8 +43,6 @@ namespace Demo.Controllers
                 return View(await books.ToListAsync());
             }
             return View(await applicationDbContext.ToListAsync());
-
-
         }
 
        
@@ -93,7 +71,7 @@ namespace Demo.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID");
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryName");
             return View();
         }
 
@@ -110,7 +88,7 @@ namespace Demo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID", book.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryName", book.CategoryID);
             return View(book);
         }
 
@@ -127,7 +105,7 @@ namespace Demo.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID", book.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryName", book.CategoryID);
             return View(book);
         }
 
@@ -163,7 +141,7 @@ namespace Demo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID", book.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryName", book.CategoryID);
             return View(book);
         }
 

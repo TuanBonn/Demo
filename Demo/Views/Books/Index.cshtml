@@ -8,21 +8,15 @@
 
 <p>
     <a class="btn btn-primary" asp-action="Create">Create New Book</a>
+    <a class="btn btn-primary" asp-area="" asp-controller="Categories" asp-action="Index">Manage categories</a>
 </p>
 <table class="table text-light">
     <thead>
-
         <form asp-controller="Books" asp-action="Index">
-    <div class="container">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for..." name="SearchString">
-            <span class="input-group-btn">
-                <button class="btn btn-search" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
-            </span>
-        </div>
-    </div>
-</form>
-
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search for..." name="SearchString">
+            </div>
+        </form>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)

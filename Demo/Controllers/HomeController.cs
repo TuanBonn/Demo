@@ -2,6 +2,7 @@
 using Demo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace Demo.Controllers
@@ -16,10 +17,25 @@ namespace Demo.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var applicationDbContext = _context.Book.Include(b => b.Category);
+
+            if (_context.Book == null)
+            {
+                return Problem("Entity set 'applicationDbContext.Book'  is null.");
+            }
+
+            var books = from m in _context.Book
+                        select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.ProductName.Contains(searchString));
+                return View(await books.ToListAsync());
+            }
             return View(await applicationDbContext.ToListAsync());
+
         }
 
         public async Task<IActionResult> Details(int? id)
