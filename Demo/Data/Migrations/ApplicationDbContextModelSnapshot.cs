@@ -17,7 +17,7 @@ namespace Demo.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -52,28 +52,7 @@ namespace Demo.Data.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("Book");
-                });
-
-            modelBuilder.Entity("Demo.Models.Cart", b =>
-                {
-                    b.Property<int>("CartDetailID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartDetailID"));
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("CartDetailID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("Cart");
+                    b.ToTable("Book", (string)null);
                 });
 
             modelBuilder.Entity("Demo.Models.Category", b =>
@@ -89,7 +68,7 @@ namespace Demo.Data.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -301,17 +280,6 @@ namespace Demo.Data.Migrations
                         .HasForeignKey("CategoryID");
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Demo.Models.Cart", b =>
-                {
-                    b.HasOne("Demo.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

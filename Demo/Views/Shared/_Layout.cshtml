@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/395843039_866441628468253_5510332541059782137_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=59Ez2QgmTMkAX91KUdC&_nc_ht=scontent.fhan5-8.fna&oh=00_AfAB4ybevfbsLLFTFJq-4weuDgyuYYP0SRG-tQI1bkj6XA&oe=653D25A0" width="40px" height="40px" />
+                    <img src="~/images/Logo.png" width="40px" height="40px" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +27,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Books" asp-action="Index">Admin</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Search" asp-action="Index">Search</a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
+                    <a asp-area="" asp-controller="Home" asp-action="ListCart" class="nav-link text-light">
+                        <img src="~/images/Cart.png" width="25px" height="25px" /> Cart
+                    </a>
                 </div>
             </div>
         </nav>

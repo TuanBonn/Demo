@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    double totalPrice = 0;
+}
+
+<div class="container py-5">
+    <div class="row d-flex justify-content-center my-4 mt-5">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-dark py-3">
+                    <h5 class="mb-0">Cart</h5>
+                </div>
+                <div class="card-body bg-dark">
+                    @foreach (var item in ViewBag.carts)
+                    {
+                        string txt_class = "quantity_" + item.Book.ProductID;
+                        double total = item.Book.Price * item.Quantity;
+                        totalPrice += total;
+                        <div class="row">
+                            <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                <!-- Image -->
+                                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                                    <img src="@item.Book.ImageURL"
+                                         class="w-100" />
+                                    <a href="#!">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                    </a>
+                                </div>
+                                <!-- Image -->
+                            </div>
+                            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                <!-- Data -->
+                                <p><strong>Name: @item.Book.ProductName</strong></p>
+                                <p>Quantity: @item.Quantity</p>
+                                <p>Price: @item.Book.Price</p>
+                                <a asp-controller="Home"
+                               asp-action="deleteCart"
+                               asp-route-id="@item.Book.ProductID"
+                                   class="btn btn-danger">Delete</a>
+                                <!-- Data -->
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                <!-- Price -->
+                                <p class="text-start text-md-center">
+                                    <strong>Price: @total</strong>
+                                </p>
+                                <!-- Price -->
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                    }
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body bg-dark">
+                    <p><strong>Expected shipping delivery</strong></p>
+                    <p class="mb-0">3- 5 Days</p>
+                </div>
+            </div>
+            <div class="card mb-4 mb-lg-0">
+                <div class="card-body bg-dark">
+                    <p><strong>We accept</strong></p>
+                    <img class="me-2" width="45px"
+                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                         alt="Visa" />
+                    <img class="me-2" width="45px"
+                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                         alt="American Express" />
+                    <img class="me-2" width="45px"
+                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                         alt="Mastercard" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header bg-dark py-3">
+                    <h5 class="mb-0">Checkout</h5>
+                </div>
+                <div class="card-body bg-dark">
+                    <div class="bg-dark">
+                        <strong>Total amount: $@totalPrice</strong>
+                    </div>
+                    <br />
+                    <a href="#" class="btn btn-primary"> Go to checkout </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
