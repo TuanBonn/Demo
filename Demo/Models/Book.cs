@@ -15,14 +15,10 @@ namespace Demo.Models
 
         // Foreign key
         public int? CategoryID { get; set; }
-        //public int? AuthorID { get; set; }
 
         // Navigation properties
         [ForeignKey("CategoryID")]
         public Category? Category { get; set; }
-
-        //[ForeignKey("AuthorID")]
-        //public Author? Author { get; set; }
 
     }
 }

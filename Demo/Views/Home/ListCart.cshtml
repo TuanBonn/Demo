@@ -36,7 +36,7 @@
                                 <!-- Data -->
                                 <p><strong>Name: @item.Book.ProductName</strong></p>
                                 <p>Quantity: @item.Quantity</p>
-                                <p>Price: @item.Book.Price</p>
+                                <p>Price: $@item.Book.Price</p>
                                 <a asp-controller="Home"
                                asp-action="deleteCart"
                                asp-route-id="@item.Book.ProductID"
@@ -46,33 +46,13 @@
                             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                 <!-- Price -->
                                 <p class="text-start text-md-center">
-                                    <strong>Price: @total</strong>
+                                    <strong>Total Price: $@total</strong>
                                 </p>
                                 <!-- Price -->
                             </div>
                         </div>
                         <hr class="my-4" />
                     }
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body bg-dark">
-                    <p><strong>Expected shipping delivery</strong></p>
-                    <p class="mb-0">3- 5 Days</p>
-                </div>
-            </div>
-            <div class="card mb-4 mb-lg-0">
-                <div class="card-body bg-dark">
-                    <p><strong>We accept</strong></p>
-                    <img class="me-2" width="45px"
-                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                         alt="Visa" />
-                    <img class="me-2" width="45px"
-                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                         alt="American Express" />
-                    <img class="me-2" width="45px"
-                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                         alt="Mastercard" />
                 </div>
             </div>
         </div>
